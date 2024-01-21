@@ -1,0 +1,13 @@
+{
+	"cards" :
+	[
+		{
+			"question" : "What is the answer to everything?",
+			"answer" : "42"
+		},
+		{
+			"question" : "Wandelnder Wischmopp?",
+			"answer" : "Moos"
+		}
+	]
+}
