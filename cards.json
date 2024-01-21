@@ -2,12 +2,46 @@
 	"cards" :
 	[
 		{
+			"number" : "1",
 			"question" : "What is the answer to everything?",
-			"answer" : "42"
+			"answers" :
+							[
+								{
+									"answer" : "42"
+								},
+								{
+									"answer" : "Zweiundvierzig"
+								}
+							]
 		},
 		{
+			"number" : "2",
 			"question" : "Wandelnder Wischmopp?",
-			"answer" : "Moos"
+			"answers" :
+							[
+								{
+									"answer" : "Moos"
+								},
+								{
+									"answer" : "Maggi"
+								}
+							]
+		},
+		{
+			"number" : "3",
+			"question" : "Wofür steht GSO?",
+			"answers" :
+							[
+								{
+									"answer" : "Georg"
+								},
+								{
+									"answer" : "Simon"
+								},
+								{
+									"answer" : "Ohm"
+								}
+							]
 		}
 	]
 }
