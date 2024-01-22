@@ -5,10 +5,6 @@ total_points_reached = 0
 total_points_possible = 0
 
 
-def start_test(text):
-    print(text)
-
-
 def load_json_from_file(file_name):
     with open(file_name, "r") as f:
         d = json.load(f)
@@ -29,21 +25,6 @@ def merge_files(new_file_name):
     file_b = load_json_from_file(input("File 2: "))
     cards = {"cards": file_a["cards"] + file_b["cards"]}
     write_json_to_file(new_file_name, cards)
-
-
-def test_return():
-    return 'test'
-
-
-def test_print():
-    print("TestTestTest")
-
-
-def load_json_from_string():
-    data = json.loads(
-        '{"question" : "Test Question Text", "answer" : "Test Answer Text"}'
-    )
-    print(data[0])
 
 
 def check_answer(c_ans, u_ans):
