@@ -27,8 +27,7 @@ def write_json_to_file(file_name, content):
 def merge_files(new_file_name):
     file_a = load_json_from_file(input("File 1: "))
     file_b = load_json_from_file(input("File 2: "))
-    cards = {"cards": []}
-    cards["cards"] = file_a["cards"] + file_b["cards"]
+    cards = {"cards": file_a["cards"] + file_b["cards"]}
     write_json_to_file(new_file_name, cards)
 
 
@@ -94,16 +93,14 @@ def create_new_card():
     add_card = True
     while add_card:
         count += 1
-        card = {"number": "testNumber",
-                "question": "testQuestion",
-                "answers": []}
-        card["number"] = count
-        card["question"] = input("Question: ")
+        card = {"number": count,
+                "question": input("Question: "),
+                "answers": []
+                }
         add_answer = True
         answers = []
         while add_answer:
-            a = {"answer": "testAnswer"}
-            a["answer"] = input("Answer: ")
+            a = {"answer": input("Answer: ")}
             answers.append(a)
             print("Added answer: " + a.__str__())
             if input("Add another answer? (y/n) ") == "n":
