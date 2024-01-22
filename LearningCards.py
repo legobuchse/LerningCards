@@ -21,6 +21,13 @@ def writeJsonToFile(fileName, content):
     with open(fileName, "w") as f:
         json.dump(content, f, indent="", ensure_ascii=False)
 
+def mergeFiles(newFileName):
+    fileA = loadJsonFromFile(input("File 1: "))
+    fileB = loadJsonFromFile(input("File 2: "))
+    cards = {"cards":[]}
+    cards["cards"] = fileA["cards"] + fileB["cards"]
+    writeJsonToFile(newFileName, cards)
+
 def testReturn():
     return 'test'
 
@@ -94,30 +101,35 @@ def createNewCard():
     print(cards)
     writeJsonToFile(fileName ,cards)
 
-print("Welcome to Learning Cards")
+def mainMenu():
+    print("Welcome to Learning Cards")
 
-inputAcceptable = False
-while not inputAcceptable:
-    time.sleep(1)
-    inputAcceptable = True
-    print("Menu:")
-    print(" 1 Give me some Questions! \n 2 Create new Cards \n 3 end me pls")
+    inputAcceptable = False
+    while not inputAcceptable:
+        time.sleep(1)
+        inputAcceptable = True
+        print("Menu:")
+        print(" 1 Give me some Questions! \n 2 Create new Cards \n 3 Merge Cards \n 4 end me pls")
 
-    match input("Input the number you vibe with:"):
-        case '1':
-            # inputAcceptable = True
-            print("selected 1")
-            startQuestions()
-            # loadJsonFromFile()
-        case '2':
-            # inputAcceptable = True
-            print("selected 2")
-            createNewCard()
-        case '3':
-            inputAcceptable = False
-            print("nope")
-        case '42':
-            inputAcceptable = False
-            print('YES')
-        case other:
-            print("Thats not an acceptable Number! Now you have to restart lol")
+        match input("Input the number you vibe with:"):
+            case '1':
+                # inputAcceptable = True
+                print("selected 1")
+                startQuestions()
+                # loadJsonFromFile()
+            case '2':
+                # inputAcceptable = True
+                print("selected 2")
+                createNewCard()
+            case '3':
+                mergeFiles(input("New file name (.json): "))
+            case '4':
+                inputAcceptable = False
+                print("nope")
+            case '42':
+                inputAcceptable = False
+                print('YES')
+            case other:
+                print("Thats not an acceptable input! Now you have to restart lol")
+    mainMenu()
+mainMenu()
