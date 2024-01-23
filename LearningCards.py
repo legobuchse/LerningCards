@@ -6,7 +6,8 @@ total_points_possible = 0
 
 
 def load_json_from_file(file_name):
-    with open(file_name, "r") as f:
+    file_name = file_name + ".json" if not file_name.endswith(".json") else file_name
+    with open(file_name, "r", encoding="utf-8") as f:
         d = json.load(f)
     print(d)
     print(d.items())
@@ -16,7 +17,7 @@ def load_json_from_file(file_name):
 
 
 def write_json_to_file(file_name, content):
-    with open(file_name, "w") as f:
+    with open(file_name, "w", encoding="utf-8") as f:
         json.dump(content, f, indent="", ensure_ascii=False)
 
 
@@ -32,7 +33,7 @@ def check_answer(c_ans, u_ans):
     wrong = 0
 
     for x in c_ans:
-        if u_ans.__str__().find(x["answer"]) < 0:
+        if u_ans.lower().__str__().find(x["answer"].__str__().lower()) < 0:
             wrong += 1
         else:
             correct += 1
@@ -134,4 +135,5 @@ def main_menu():
     main_menu()
 
 
-main_menu()
+if __name__ == '__main__':
+    main_menu()
